@@ -22,7 +22,7 @@ class DashboardController extends BaseController
 
     public function index()
     {
-        $utilisateurId = $this->getUtilisateurId();
+        $utilisateurId = session()->get('employes_id');
 
         if ($utilisateurId === null) {
             return redirect()->to('/');

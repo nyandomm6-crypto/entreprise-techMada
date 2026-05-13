@@ -193,10 +193,9 @@ CREATE TABLE demande (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (employe_id) REFERENCES employes(id),
-    FOREIGN KEY (type_id) REFERENCES type(id),
+    FOREIGN KEY (type_id) REFERENCES types_conge(id),
     FOREIGN KEY (statut_id) REFERENCES statut(id)
 );
-
 
 
 
