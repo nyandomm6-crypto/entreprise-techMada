@@ -9,11 +9,11 @@
                 <div class="sidebar-logo-icon"><i class="bi bi-briefcase"></i></div>
                 <div class="sidebar-brand-name">TechMada RH<span>Espace employé</span></div>
             </div>
-            <ul class="sidebar-nav" style="margin-top:1rem">
-                <li><a href="#page-dashboard-employe"><i class="bi bi-grid-1x2"></i> Tableau de bord</a></li>
-                <li><a href="#page-form-conge" class="active"><i class="bi bi-plus-circle"></i> Nouvelle demande</a></li>
-                <li><a href="#page-mes-conges"><i class="bi bi-calendar3"></i> Mes demandes</a></li>
-                <li><a href="#page-profil-employe"><i class="bi bi-person"></i> Mon profil</a></li>
+            <ul class="sidebar-nav">
+                <li><a href="/employes/dashboard"><i class="bi bi-grid-1x2"></i> Tableau de bord</a></li>
+                <li><a href="/employes/demande" class="active"><i class="bi bi-plus-circle"></i> Nouvelle demande</a></li>
+                <li><a href="/employes/mes-conges"><i class="bi bi-calendar3"></i> Mes demandes</a></li>
+                <li><a href="/employes/profil"><i class="bi bi-person"></i> Mon profil</a></li>
             </ul>
             <div class="sidebar-user">
                 <div class="s-user-row">
@@ -46,9 +46,11 @@
                         <div class="form-section">
                             <h3>Détails de la demande</h3>
 
+                            <form method="post" action="<?= site_url('employes/demande') ?>">
+                                <?= csrf_field() ?>
                             <div class="f-group" style="margin-bottom:1rem">
                                 <label class="f-label">Type de congé <span style="color:var(--danger)">*</span></label>
-                                <select class="f-select">
+                                <select name="type_id" class="f-select">
                                     <option value="">-- Choisir un type --</option>
                                     <option value="1" selected>Congé annuel (18 j restants)</option>
                                     <option value="2">Congé maladie (8 j restants)</option>
@@ -62,11 +64,11 @@
                             <div class="form-grid-2" style="margin-bottom:1rem">
                                 <div class="f-group">
                                     <label class="f-label">Date de début <span style="color:var(--danger)">*</span></label>
-                                    <input type="date" class="f-input" value="2025-06-23" />
+                                    <input name="date_debut" type="date" class="f-input" value="<?= esc(old('date_debut','2025-06-23')) ?>" />
                                 </div>
                                 <div class="f-group">
                                     <label class="f-label">Date de fin <span style="color:var(--danger)">*</span></label>
-                                    <input type="date" class="f-input" value="2025-06-27" />
+                                    <input name="date_fin" type="date" class="f-input" value="<?= esc(old('date_fin','2025-06-27')) ?>" />
                                 </div>
                             </div>
 
@@ -78,7 +80,7 @@
 
                             <div class="f-group" style="margin-bottom:1rem">
                                 <label class="f-label">Motif (optionnel)</label>
-                                <textarea class="f-textarea" placeholder="Précisez le motif de votre demande si nécessaire..."></textarea>
+                                <textarea name="motif" class="f-textarea" placeholder="Précisez le motif de votre demande si nécessaire..."><?= esc(old('motif')) ?></textarea>
                                 <div class="f-hint">Le motif est visible par le responsable RH.</div>
                             </div>
 
@@ -86,6 +88,7 @@
                                 <button class="btn-forest" type="submit"><i class="bi bi-send"></i> Soumettre la demande</button>
                                 <a href="#page-dashboard-employe" class="btn-secondary"><i class="bi bi-x"></i> Annuler</a>
                             </div>
+                            </form>
                         </div>
                     </div>
 
