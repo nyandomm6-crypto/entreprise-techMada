@@ -79,6 +79,7 @@ class CongeModel extends Model
         return $this->select('conges.*, 
                               employes.nom AS employe_nom, 
                               employes.prenom AS employe_prenom,
+                              employes.date_embauche AS date_embauche,
                               departements.nom AS departement_nom,
                               types_conge.libelle AS type_libelle,
                               rh.nom AS rh_nom, 
