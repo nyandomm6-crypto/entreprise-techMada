@@ -10,10 +10,9 @@
       <div class="sidebar-logo-icon"><i class="bi bi-briefcase"></i></div>
       <div class="sidebar-brand-name">TechMada RH<span>Espace employé</span></div>
     </div>
-    <div class="sidebar-section">Menu</div>
     <ul class="sidebar-nav">
-      <li><a href="#page-dashboard-employe" class="active"><i class="bi bi-grid-1x2"></i> Tableau de bord</a></li>
-      <li><a href="#page-form-conge"><i class="bi bi-plus-circle"></i> Nouvelle demande</a></li>
+      <li><a href="/employes/dashboard" class="active"><i class="bi bi-grid-1x2"></i> Tableau de bord</a></li>
+      <li><a href="/employes/demande"><i class="bi bi-plus-circle"></i> Nouvelle demande</a></li>
       <li>
         <a href="#page-mes-conges">
           <i class="bi bi-calendar3"></i> Mes demandes

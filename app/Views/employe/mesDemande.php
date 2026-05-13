@@ -10,10 +10,10 @@
       <div class="sidebar-brand-name">TechMada RH<span>Espace employé</span></div>
     </div>
     <ul class="sidebar-nav" style="margin-top:1rem">
-      <li><a href="#page-dashboard-employe"><i class="bi bi-grid-1x2"></i> Tableau de bord</a></li>
-      <li><a href="#page-form-conge"><i class="bi bi-plus-circle"></i> Nouvelle demande</a></li>
-      <li><a href="#page-mes-conges" class="active"><i class="bi bi-calendar3"></i> Mes demandes</a></li>
-      <li><a href="#page-profil-employe"><i class="bi bi-person"></i> Mon profil</a></li>
+      <li><a href="/employes/dashboard"><i class="bi bi-grid-1x2"></i> Tableau de bord</a></li>
+      <li><a href="/employes/demande"><i class="bi bi-plus-circle"></i> Nouvelle demande</a></li>
+      <li><a href="/employes/mes-conges" class="active"><i class="bi bi-calendar3"></i> Mes demandes</a></li>
+      <li><a href="/employes/profil"><i class="bi bi-person"></i> Mon profil</a></li>
     </ul>
     <div class="sidebar-user">
       <div class="s-user-row">
