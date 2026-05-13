@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/app') ?>
 
 <?= $this->section('content') ?>
-<section id="page-dashboard-employe" style="margin-top:3rem">
+<section id="page-dashboard-employe">
 <div class="app-wrap">
 
   <!-- SIDEBAR EMPLOYÉ -->
