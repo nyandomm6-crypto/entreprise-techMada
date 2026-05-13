@@ -3,16 +3,16 @@
 namespace App\Controllers\front;
 
 use App\Controllers\BaseController;
-use App\Models\EmployeModel;
+use App\Models\EmployesModel;
 
-class AuthController extends BaseController
+class EmployesController extends BaseController
 {
-    private EmployeModel $utilisateurModel;
+    private EmployesModel $employeModel;
 
 
     public function __construct()
     {
-        $this->utilisateurModel = new EmployeModel();
+        $this->employeModel = new EmployesModel();
     }
 
     public function loginView()
@@ -20,7 +20,6 @@ class AuthController extends BaseController
         return view('front/auth/login');
     }
     public function loginPost() {}
-
 
 
     public function logout()

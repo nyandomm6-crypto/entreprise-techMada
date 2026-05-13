@@ -7,6 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/db-test', 'Home::dbTest');
+$routes->get('/login', 'front\EmployesController::loginView');
+$routes->post('/login', 'front\EmployesController::loginPost');
+$routes->get('/logout', 'front\EmployesController::logout');
 
 // emlpoye
 $routes->group('', ['filter' => 'employe'], function($routes) {

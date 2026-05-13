@@ -11,3 +11,13 @@ Stack trace:
 #8 /home/huhu/Documents/web/entreprise-techMada/public/index.php(59): CodeIgniter\Boot::bootWeb()
 #9 /home/huhu/Documents/web/entreprise-techMada/system/rewrite.php(44): require_once('...')
 #10 {main}
+CRITICAL - 2026-05-13 06:50:04 --> Error: Class "App\Models\EmployeModel" not found
+[Method: GET, Route: login]
+in APPPATH/Controllers/front/EmployesController.php on line 15.
+ 1 SYSTEMPATH/CodeIgniter.php(921): App\Controllers\front\EmployesController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/huhu/Documents/web/entreprise-techMada/public/index.php')
