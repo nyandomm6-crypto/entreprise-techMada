@@ -50,7 +50,7 @@
                                 <?= csrf_field() ?>
                             <div class="f-group" style="margin-bottom:1rem">
                                 <label class="f-label">Type de congé <span style="color:var(--danger)">*</span></label>
-                                <select name="type_conge" class="f-select">
+                                <select name="type_id" class="f-select">
                                     <option value="">-- Choisir un type --</option>
                                     <option value="1" selected>Congé annuel (18 j restants)</option>
                                     <option value="2">Congé maladie (8 j restants)</option>
@@ -80,7 +80,7 @@
 
                             <div class="f-group" style="margin-bottom:1rem">
                                 <label class="f-label">Motif (optionnel)</label>
-                                <textarea name="commentaire" class="f-textarea" placeholder="Précisez le motif de votre demande si nécessaire..."><?= esc(old('commentaire')) ?></textarea>
+                                <textarea name="motif" class="f-textarea" placeholder="Précisez le motif de votre demande si nécessaire..."><?= esc(old('motif')) ?></textarea>
                                 <div class="f-hint">Le motif est visible par le responsable RH.</div>
                             </div>
 

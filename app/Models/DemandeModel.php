@@ -6,31 +6,27 @@ use CodeIgniter\Model;
 
 class DemandeModel extends Model
 {
-    protected $table = 'conges';
+    protected $table = 'demande';
     protected $primaryKey = 'id';
 
     protected $allowedFields = [
         'employe_id',
-        'type_conge_id',
+        'type_id',
+        'statut_id',
         'date_debut',
         'date_fin',
-        'nb_jours',
-        'motif',
-        'statut',
-        'commentaire_rh',
-        'traite_par',
-        'traite_at',
-        'created_at'
+        'motif'
     ];
 
     protected $useTimestamps = false;
 
-    // 🔍 récupérer toutes les demandes avec jointures
+    // 🔍 récupérer toutes les demandes avec jointures (table `demande`)
     public function getDemandesWithDetails()
     {
-        return $this->select('conges.*, employes.nom, employes.prenom, employes.email, types_conge.libelle as type_conge')
-            ->join('employes', 'employes.id = conges.employe_id')
-            ->join('types_conge', 'types_conge.id = conges.type_conge_id')
+        return $this->select('demande.*, employes.nom, employes.prenom, types_conge.libelle as type_conge, statut.libelle as statut')
+            ->join('employes', 'employes.id = demande.employe_id')
+            ->join('types_conge', 'types_conge.id = demande.type_id')
+            ->join('statut', 'statut.id = demande.statut_id')
             ->findAll();
     }
 
@@ -49,7 +45,7 @@ class DemandeModel extends Model
     // ✏️ modifier statut (valider/refuser)
     public function updateStatut($id, $statut_id)
     {
-        return $this->update($id, ['statut' => $statut_id]);
+        return $this->update($id, ['statut_id' => $statut_id]);
     }
 
     public function deleteDemande($id)
@@ -61,12 +57,11 @@ class DemandeModel extends Model
     {
         $data = [
             'employe_id'    => $employeId,
-            'type_conge_id' => $typeId,
-            'statut'        => 'en_attente',
+            'type_id'       => $typeId,
+            'statut_id'     => 1, // en attente
             'date_debut'    => $dateDebut,
             'date_fin'      => $dateFin,
-            'motif'         => $motif,
-            'created_at'    => date('Y-m-d H:i:s')
+            'motif'         => $motif
         ];
 
         return $this->insert($data);

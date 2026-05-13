@@ -27,10 +27,10 @@ class DashboardController extends BaseController
     public function envoyerDemande()
     {
         // Récupérer les données du formulaire
-        $typeConge   = $this->request->getPost('type_conge');
+            $typeId      = $this->request->getPost('type_id');
         $dateDebut   = $this->request->getPost('date_debut');
         $dateFin     = $this->request->getPost('date_fin');
-        $commentaire = $this->request->getPost('commentaire');
+            $motif       = $this->request->getPost('motif');
 
         // Vérifier session
         $employeId = session()->get('employes_id');
@@ -40,7 +40,7 @@ class DashboardController extends BaseController
 
         // Validation basique
         $rules = [
-            'type_conge' => 'required|integer',
+            'type_id'    => 'required|integer',
             'date_debut' => 'required|valid_date[Y-m-d]',
             'date_fin'   => 'required|valid_date[Y-m-d]',
         ];
@@ -51,17 +51,14 @@ class DashboardController extends BaseController
             return redirect()->back()->withInput()->with('error', 'Veuillez remplir tous les champs correctement.');
         }
 
-        // Préparer les données pour la création de la demande
-        $nbJours = (int) floor((strtotime($dateFin) - strtotime($dateDebut)) / 86400) + 1;
+        // Préparer les données pour la création de la demande (correspond à la table `demande`)
         $data = [
-            'employe_id'    => $employeId,
-            'type_conge_id' => (int) $typeConge,
-            'date_debut'    => $dateDebut,
-            'date_fin'      => $dateFin,
-            'nb_jours'      => $nbJours,
-            'motif'         => $commentaire,
-            'statut'        => 'en_attente',
-            'created_at'    => date('Y-m-d H:i:s'),
+            'employe_id' => (int) $employeId,
+            'type_id'    => (int) $typeId,
+            'statut_id'  => 1, // en attente
+            'date_debut' => $dateDebut,
+            'date_fin'   => $dateFin,
+            'motif'      => $motif,
         ];
 
         $this->demandeModel->createDemande($data);
