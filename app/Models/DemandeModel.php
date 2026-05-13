@@ -18,43 +18,31 @@ class DemandeModel extends Model
         'motif'
     ];
 
-    protected $useTimestamps = true;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
+    protected $useTimestamps = false;
 
+    // 🔍 récupérer toutes les demandes avec jointures (table `demande`)
     public function getDemandesWithDetails()
     {
-        return $this->select('
-                demande.*,
-                employes.nom,
-                employes.nom AS employe_nom,
-                employes.prenom,
-                employes.prenom AS employe_prenom,
-                employes.date_embauche,
-                departements.nom AS departement,
-                departements.nom AS departement_nom,
-                types_conge.libelle AS type,
-                types_conge.libelle AS type_libelle,
-                statut.libelle AS statut
-            ')
+        return $this->select('demande.*, employes.nom, employes.prenom, types_conge.libelle as type_conge, statut.libelle as statut')
             ->join('employes', 'employes.id = demande.employe_id')
-            ->join('departements', 'departements.id = employes.departement_id', 'left')
-            ->join('types_conge', 'types_conge.id = demande.type_id', 'left')
+            ->join('types_conge', 'types_conge.id = demande.type_id')
             ->join('statut', 'statut.id = demande.statut_id')
-            ->orderBy('demande.created_at', 'DESC')
             ->findAll();
     }
 
+    // 🔍 demandes d’un employé
     public function getByEmploye($employe_id)
     {
         return $this->where('employe_id', $employe_id)->findAll();
     }
 
+    // ➕ ajouter une demande
     public function createDemande($data)
     {
         return $this->insert($data);
     }
 
+    // ✏️ modifier statut (valider/refuser)
     public function updateStatut($id, $statut_id)
     {
         return $this->update($id, ['statut_id' => $statut_id]);
@@ -65,7 +53,7 @@ class DemandeModel extends Model
         return $this->delete($id);
     }
 
-       public function creerDemande($employeId, $typeId, $dateDebut, $dateFin, $motif)
+    public function creerDemande($employeId, $typeId, $dateDebut, $dateFin, $motif)
     {
         $data = [
             'employe_id'    => $employeId,
