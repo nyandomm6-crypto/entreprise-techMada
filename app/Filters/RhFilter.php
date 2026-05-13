@@ -25,7 +25,7 @@ class RhFilter implements FilterInterface
             return redirect()->to('/login');
         }
 
-        $role = (int) ($employes['role'] ?? 0);
+        $role = ($employes['role'] ?? null);
 
         if ($role == "rh") {
             return redirect()->to('rh/dashboard');

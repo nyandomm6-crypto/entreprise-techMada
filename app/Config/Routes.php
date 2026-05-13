@@ -13,16 +13,16 @@ $routes->get('/logout', 'front\EmployesController::logout');
 
 // emlpoye
 $routes->group('', ['filter' => 'employe'], function($routes) {
-    $routes->get('employes/dashboard', 'employe\DashboardController::index');
+    $routes->get('/employes/dashboard', 'employe\DashboardController::index');
 });
 
 
 // rh
 $routes->group('', ['filter' => 'rh'], function($routes) {
-    $routes->get('rh/dashboard', 'rh\DashboardController::index');
+    $routes->get('/rh/dashboard', 'rh\DashboardController::index');
 });
 
 // admin
 $routes->group('', ['filter' => 'admin'], function($routes) {
-    $routes->get('admin/dashboard', 'rh\DashboardController::index');
+    $routes->get('/admin/dashboard', 'admin\DashboardController::index');
 });

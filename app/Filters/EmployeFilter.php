@@ -25,7 +25,7 @@ class EmployesFilter implements FilterInterface
             return redirect()->to('/login');
         }
 
-        $role = (int) ($employes['role'] ?? 0);
+        $role = ($employes['role'] ?? null);
 
         if ($role == "employe") {
             return redirect()->to('employes/dashboard');
