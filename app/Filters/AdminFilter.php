@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Filters;
+
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Filters\FilterInterface;
+use App\Models\EmployesModel;
+
+class AdminFilter implements FilterInterface
+{
+    public function before(RequestInterface $request, $arguments = null)
+    {
+        $employesId = session()->get('employes_id');
+
+        if (!$employesId) {
+            return redirect()->to('/login');
+        }
+
+        $employesModel = new EmployesModel();
+        $employes      = $employesModel->getById((int) $employesId);
+
+        if ($employes === null) {
+            session()->destroy();
+            return redirect()->to('/login');
+        }
+
+        $role = ($employes['role'] ?? null);
+
+        if ($role == "admin") {
+            return redirect()->to('admin/dashboard');
+        }
+    }
+
+    public function after(
+        RequestInterface $request,
+        ResponseInterface $response,
+        $arguments = null
+    ) {
+        // rien
+    }
+}
