@@ -17,7 +17,7 @@ class EmployesController extends BaseController
 
     public function loginView()
     {
-        return view('front/auth/login');
+        return view('auth/login');
     }
 
     public function loginPost() {
