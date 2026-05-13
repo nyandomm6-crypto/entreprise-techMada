@@ -54,7 +54,7 @@ class Database extends Config
     //     * @var array<string, mixed>
     //     */
        public array $default = [
-           'database'    => 'ma_base.db',
+           'database'    => 'base.db',
            'DBDriver'    => 'SQLite3',
            'DBPrefix'    => '',
            'DBDebug'     => true,
@@ -71,7 +71,7 @@ class Database extends Config
        ];
 
     //    /**
-    //     * Sample database connection for Postgre.
+    //     * Sample database cma_baseonnection for Postgre.
     //     *
     //     * @var array<string, mixed>
     //     */

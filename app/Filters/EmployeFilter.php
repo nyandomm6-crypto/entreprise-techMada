@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 use App\Models\EmployesModel;
 
-class AdminFilter implements FilterInterface
+class EmployesFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
@@ -27,8 +27,8 @@ class AdminFilter implements FilterInterface
 
         $role = (int) ($employes['role'] ?? 0);
 
-        if ($role == "admin") {
-            return redirect()->to('admin/dashboard');
+        if ($role == "employe") {
+            return redirect()->to('employes/dashboard');
         }
     }
 
