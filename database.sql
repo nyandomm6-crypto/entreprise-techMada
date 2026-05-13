@@ -195,7 +195,7 @@ WHERE t.deductible = 1;
 -- =============================================================
 -- VÉRIFICATION RAPIDE (décommenter pour tester)
 -- =============================================================
--- SELECT * FROM v_soldes;
+SELECT * FROM v_soldes;
 -- SELECT id, nom, prenom, email, role FROM employes;
 -- SELECT * FROM types_conge;
 -- SELECT * FROM departements;

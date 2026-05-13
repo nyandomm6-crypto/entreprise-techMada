@@ -1,0 +1,13 @@
+ERROR - 2026-05-13 06:21:20 --> Error connecting to the database: Error: Class "SQLite3" not found in /home/huhu/Documents/web/entreprise-techMada/system/Database/SQLite3/Connection.php:111
+Stack trace:
+#0 /home/huhu/Documents/web/entreprise-techMada/system/Database/BaseConnection.php(555): CodeIgniter\Database\SQLite3\Connection->connect()
+#1 /home/huhu/Documents/web/entreprise-techMada/system/Database/SQLite3/Connection.php(74): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/huhu/Documents/web/entreprise-techMada/app/Controllers/Home.php(21): CodeIgniter\Database\SQLite3\Connection->initialize()
+#3 /home/huhu/Documents/web/entreprise-techMada/system/CodeIgniter.php(951): App\Controllers\Home->dbTest()
+#4 /home/huhu/Documents/web/entreprise-techMada/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#5 /home/huhu/Documents/web/entreprise-techMada/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#6 /home/huhu/Documents/web/entreprise-techMada/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#7 /home/huhu/Documents/web/entreprise-techMada/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#8 /home/huhu/Documents/web/entreprise-techMada/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#9 /home/huhu/Documents/web/entreprise-techMada/system/rewrite.php(44): require_once('...')
+#10 {main}
