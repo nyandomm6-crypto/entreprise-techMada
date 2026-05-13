@@ -71,7 +71,7 @@ class Database extends Config
        ];
 
     //    /**
-    //     * Sample database connection for Postgre.
+    //     * Sample database cma_baseonnection for Postgre.
     //     *
     //     * @var array<string, mixed>
     //     */
