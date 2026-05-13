@@ -42,15 +42,16 @@
       Identifiants incorrects. Veuillez réessayer.
     </div>
 
-    <form method="post" action="/login">
+    <form action="<?= site_url('login') ?>" method="post"  class="auth-form">
       <div class="f-group">
         <label class="f-label">Adresse email</label>
-        <input type="email" class="f-input" placeholder="vous@techmada.mg" value="employe@techmada.mg"/>
+          <input name="email" type="email" class="f-input" placeholder="vous@techmada.mg" value="<?= esc(old('email', 'employe@techmada.mg')) ?>"/>
       </div>
       <div class="f-group">
         <label class="f-label">Mot de passe</label>
-        <input type="password" class="f-input" placeholder="••••••••" value="emp123"/>
+          <input name="password" type="password" class="f-input" placeholder="••••••••" value="<?= esc(old('password', 'emp123')) ?>"/>
       </div>
+        <?= csrf_field() ?>
       <button type="submit" class="btn-primary" style="margin-top:.5rem">
         Se connecter <i class="bi bi-arrow-right-short"></i>
       </button>
