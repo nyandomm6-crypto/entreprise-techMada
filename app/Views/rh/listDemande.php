@@ -72,6 +72,37 @@
             <tr><th>Employé</th><th>Type</th><th>Période</th><th>Durée</th><th>Solde dispo</th><th>Statut</th><th>Actions</th></tr>
           </thead>
           <tbody>
+
+            <?php foreach ($demandes as $d): ?>
+                <tr>
+                  <tr>
+                    <td>
+                      <div class="profile-row">
+                        <div class="avatar av-green" style="width:32px;height:32px;font-size:.7rem">SR</div>
+                        <div class="profile-info">
+                          <div class="pname"><?= esc($d['nom']) ?> <?= esc($d['prenom']) ?></div>
+                          <div class="pdept">IT · 23 juin → 27 juin</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="type-badge t-annuel">Annuel</span></td>
+                    <td class="td-muted" style="font-size:.8rem"><?= esc($d['date_debut']) ?> – <?= esc($d['date_fin']) ?></td>
+                    <td class="td-mono">5 j</td>
+                    <td>
+                      <span style="font-family:'DM Mono',monospace;font-size:.82rem;color:var(--success);font-weight:500">18 j</span>
+                      <span style="font-size:.72rem;color:var(--muted)"> dispo</span>
+                    </td>
+                    <td><span class="statut s-attente">en attente</span></td>
+                    <td>
+                      <div class="action-btns">
+                        <button class="btn-sm btn-approve"><i class="bi bi-check-lg"></i> Approuver</button>
+                        <button class="btn-sm btn-refuse"><i class="bi bi-x-lg"></i> Refuser</button>
+                      </div>
+                    </td>
+                  </tr>
+                <tr>
+            <?php endforeach; ?>
+
             <!-- En attente — actions disponibles -->
             <tr>
               <td>
