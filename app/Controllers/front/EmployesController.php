@@ -20,38 +20,23 @@ class EmployesController extends BaseController
         return view('auth/login');
     }
 
-    public function loginPost() {
+    public function loginPost()
+    {
         $email    = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        $employe = $this->employeModel
-                    ->where('email', $email)
-                    ->first();
+        // validate input
+        if (empty($email) || empty($password)) {
+            return redirect()->back()->withInput()->with('error', 'Veuillez fournir votre email et mot de passe.');
+        }
 
+        $employe = $this->employeModel->getByEmail((string) $email);
         if (!$employe) {
-            return redirect()->back()->with('error', 'Email non trouvé');
+            return redirect()->to('/login')->with('error', 'non');
         }
-
         if (!password_verify($password, $employe['password'])) {
-            return redirect()->back()->with('error', 'Mot de passe incorrect');
+            return redirect()->to('/login')->with('error', 'non');
         }
-
-        session()->set([
-            'employes_id' => $employe['id'],
-            'role'        => $employe['role'],
-            'isLoggedIn'  => true
-        ]);
-
-        switch ($employe['role']) {
-            case 'admin':
-                return redirect()->to('/admin/dashboard');
-            case 'rh':
-                return redirect()->to('/rh/dashboard');
-            default:
-                return redirect()->to('/employes/dashboard');
-        }
-
-
     }
 
 
