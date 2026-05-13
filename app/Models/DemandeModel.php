@@ -22,34 +22,44 @@ class DemandeModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // 🔍 récupérer toutes les demandes avec jointures
     public function getDemandesWithDetails()
     {
-        return $this->select('demande.*, employes.nom, employes.prenom, statut.libelle as statut')
+        return $this->select('
+                demande.*,
+                employes.nom,
+                employes.nom AS employe_nom,
+                employes.prenom,
+                employes.prenom AS employe_prenom,
+                employes.date_embauche,
+                departements.nom AS departement,
+                departements.nom AS departement_nom,
+                types_conge.libelle AS type,
+                types_conge.libelle AS type_libelle,
+                statut.libelle AS statut
+            ')
             ->join('employes', 'employes.id = demande.employe_id')
+            ->join('departements', 'departements.id = employes.departement_id', 'left')
+            ->join('types_conge', 'types_conge.id = demande.type_id', 'left')
             ->join('statut', 'statut.id = demande.statut_id')
+            ->orderBy('demande.created_at', 'DESC')
             ->findAll();
     }
 
-    // 🔍 demandes d’un employé
     public function getByEmploye($employe_id)
     {
         return $this->where('employe_id', $employe_id)->findAll();
     }
 
-    // ➕ ajouter une demande
     public function createDemande($data)
     {
         return $this->insert($data);
     }
 
-    // ✏️ modifier statut (valider/refuser)
     public function updateStatut($id, $statut_id)
     {
         return $this->update($id, ['statut_id' => $statut_id]);
     }
 
-    // ❌ supprimer
     public function deleteDemande($id)
     {
         return $this->delete($id);
