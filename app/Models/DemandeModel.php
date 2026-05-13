@@ -64,4 +64,18 @@ class DemandeModel extends Model
     {
         return $this->delete($id);
     }
+
+       public function creerDemande($employeId, $typeId, $dateDebut, $dateFin, $motif)
+    {
+        $data = [
+            'employe_id'    => $employeId,
+            'type_id'       => $typeId,
+            'statut_id'     => 1, // en attente
+            'date_debut'    => $dateDebut,
+            'date_fin'      => $dateFin,
+            'motif'         => $motif
+        ];
+
+        return $this->insert($data);
+    }
 }
