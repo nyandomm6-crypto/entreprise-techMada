@@ -170,3 +170,58 @@ SELECT * FROM v_soldes;
 -- jean.rakoto@techmada.mg   → employe
 -- fara.rabe@techmada.mg     → employe
 -- =============================================================
+
+
+CREATE TABLE statut (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    libelle VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE demande (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    employe_id INTEGER NOT NULL,
+    type_id INTEGER NOT NULL,
+    statut_id INTEGER NOT NULL,
+
+    date_debut DATE NOT NULL,
+    date_fin DATE NOT NULL,
+
+    motif TEXT,
+
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (employe_id) REFERENCES employes(id),
+    FOREIGN KEY (type_id) REFERENCES type(id),
+    FOREIGN KEY (statut_id) REFERENCES statut(id)
+);
+
+
+
+
+INSERT INTO statut (libelle) VALUES
+('En attente'),
+('Validé'),
+('Refusé');
+
+
+INSERT INTO demande (employe_id, type_id, statut_id, date_debut, date_fin, motif)
+VALUES
+-- Admin
+(1, 1, 2, '2026-06-01', '2026-06-05', 'Congé annuel'),
+
+-- RH
+(2, 2, 1, '2026-06-10', '2026-06-12', 'Maladie'),
+
+-- Employé Jean
+(3, 1, 3, '2026-07-01', '2026-07-10', 'Vacances famille'),
+
+-- Employé Fara
+(4, 3, 2, '2026-08-15', '2026-08-20', 'Formation professionnelle'),
+
+-- Autres exemples
+(3, 2, 1, '2026-06-20', '2026-06-22', 'Grippe'),
+(4, 1, 1, '2026-07-05', '2026-07-08', 'Congé personnel'),
+(2, 3, 2, '2026-05-01', '2026-05-03', 'Séminaire'),
+(1, 2, 3, '2026-04-10', '2026-04-12', 'Absence non justifiée');
