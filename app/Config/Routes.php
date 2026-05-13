@@ -13,7 +13,7 @@ $routes->get('/logout', 'front\EmployesController::logout');
 
 // emlpoye
 $routes->group('', ['filter' => 'employe'], function($routes) {
-    $routes->get('/employes/dashboard', 'employe\DashboardController::index');
+    $routes->get('/employes/dashboard', 'employes\DashboardController::index');
 });
 
 

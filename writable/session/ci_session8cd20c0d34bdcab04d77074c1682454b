@@ -1,1 +1,0 @@
-__ci_last_regenerate|i:1778658792;_ci_previous_url|s:37:"http://localhost:8080/index.php/login";_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:3:{s:5:"email";s:17:"admin@techmada.mg";s:8:"password";s:6:"emp123";s:14:"csrf_test_name";s:32:"03eed213a32c4dcf662ef339bb7bf3b2";}}__ci_vars|a:2:{s:13:"_ci_old_input";s:3:"old";s:5:"error";s:3:"old";}error|s:22:"Mot de passe incorrect";
