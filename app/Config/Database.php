@@ -24,51 +24,51 @@ class Database extends Config
      *
      * @var array<string, mixed>
      */
-    public array $default = [
-        'DSN'        => '',
-        'hostname'   => 'localhost',
-        'username'   => 'postgres',
-        'password'   => 'postgres',
-        'database'   => 'imc_db',
-        'schema'     => 'public',
-        'DBDriver'   => 'Postgre',
-        'DBPrefix'   => '',
-        'pConnect'   => false,
-        'DBDebug'    => true,
-        'charset'    => 'utf8',
-        'swapPre'    => '',
-        'encrypt'    => false,
-        'compress'   => false,
-        'strictOn'   => false,
-        'failover'   => [],
-        'port'       => 5432,
-        'dateFormat' => [
-            'date'     => 'Y-m-d',
-            'datetime' => 'Y-m-d H:i:s',
-            'time'     => 'H:i:s',
-        ],
-    ];
+    // public array $default = [
+    //     'DSN'        => '',
+    //     'hostname'   => 'localhost',
+    //     'username'   => 'postgres',
+    //     'password'   => 'postgres',
+    //     'database'   => 'tech_mada',
+    //     'schema'     => 'public',
+    //     'DBDriver'   => 'Postgre',
+    //     'DBPrefix'   => '',
+    //     'pConnect'   => false,
+    //     'DBDebug'    => true,
+    //     'charset'    => 'utf8',
+    //     'swapPre'    => '',
+    //     'encrypt'    => false,
+    //     'compress'   => false,
+    //     'strictOn'   => false,
+    //     'failover'   => [],
+    //     'port'       => 5432,
+    //     'dateFormat' => [
+    //         'date'     => 'Y-m-d',
+    //         'datetime' => 'Y-m-d H:i:s',
+    //         'time'     => 'H:i:s',
+    //     ],
+    // ];
     //    /**
     //     * Sample database connection for SQLite3.
     //     *
     //     * @var array<string, mixed>
     //     */
-    //    public array $default = [
-    //        'database'    => 'database.db',
-    //        'DBDriver'    => 'SQLite3',
-    //        'DBPrefix'    => '',
-    //        'DBDebug'     => true,
-    //        'swapPre'     => '',
-    //        'failover'    => [],
-    //        'foreignKeys' => true,
-    //        'busyTimeout' => 1000,
-    //        'synchronous' => null,
-    //        'dateFormat'  => [
-    //            'date'     => 'Y-m-d',
-    //            'datetime' => 'Y-m-d H:i:s',
-    //            'time'     => 'H:i:s',
-    //        ],
-    //    ];
+       public array $default = [
+           'database'    => 'ma_base.db',
+           'DBDriver'    => 'SQLite3',
+           'DBPrefix'    => '',
+           'DBDebug'     => true,
+           'swapPre'     => '',
+           'failover'    => [],
+           'foreignKeys' => true,
+           'busyTimeout' => 1000,
+           'synchronous' => null,
+           'dateFormat'  => [
+               'date'     => 'Y-m-d',
+               'datetime' => 'Y-m-d H:i:s',
+               'time'     => 'H:i:s',
+           ],
+       ];
 
     //    /**
     //     * Sample database connection for Postgre.
