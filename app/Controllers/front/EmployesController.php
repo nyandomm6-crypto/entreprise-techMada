@@ -21,9 +21,15 @@ class EmployesController extends BaseController
     }
 
     public function loginPost() {
+        // echo "LOGIN POST OK";
+        // exit;
         $email    = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
+        echo "EMAIL: " . $this->request->getPost('email') . "<br>";
+        echo "PASSWORD: " . $this->request->getPost('password') . "<br>";
+        exit;
+        
         $employe = $this->employeModel
                     ->where('email', $email)
                     ->first();

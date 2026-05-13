@@ -42,7 +42,7 @@
       Identifiants incorrects. Veuillez réessayer.
     </div>
 
-    <form>
+    <form method="post" action="/login">
       <div class="f-group">
         <label class="f-label">Adresse email</label>
         <input type="email" class="f-input" placeholder="vous@techmada.mg" value="employe@techmada.mg"/>
